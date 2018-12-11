@@ -1,9 +1,11 @@
 const express = require("express");
-const app = express();
+const menus = require("./routes/menus");
 
-app.get("/", (req, res) => {
-  res.send("Hello world!");
-});
+const app = express();
+require("./startup/db")();
+
+app.use(express.json());
+app.use("/api/menus", menus);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

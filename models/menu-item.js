@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
 
-const menuSchema = new mongoose.Schema({
+const menuItemSchema = new mongoose.Schema({
   name: {
     type: String,
     minlength: 5,
@@ -21,9 +21,9 @@ const menuSchema = new mongoose.Schema({
   }
 });
 
-const Menu = mongoose.model("Menu", menuSchema);
+const MenuItem = mongoose.model("MenuItem", menuItemSchema);
 
-function validate(menu) {
+function validate(menuItem) {
   const schema = {
     name: Joi.string()
       .min(5)
@@ -31,5 +31,8 @@ function validate(menu) {
       .required()
   };
 
-  return Joi.validate(genre, schema);
+  return Joi.validate(menuItem, schema);
 }
+
+exports.MenuItem = MenuItem;
+exports.validate = validate;

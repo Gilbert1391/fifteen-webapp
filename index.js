@@ -1,11 +1,8 @@
 const express = require("express");
-const menus = require("./routes/menus");
-
 const app = express();
-require("./startup/db")();
 
-app.use(express.json());
-app.use("/api/menus", menus);
+require("./startup/db")();
+require("./startup/routes")(app);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

@@ -2,7 +2,7 @@ const Joi = require("joi");
 const mongoose = require("mongoose");
 
 const menuItemSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     minlength: 5,
     maxlength: 50,
@@ -16,16 +16,35 @@ const menuItemSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    minlength: 0,
-    maxlength: 250
+    min: 1,
+    max: 100,
+    required: true
+  },
+  category: {
+    type: String,
+    minlength: 5,
+    maxlength: 50,
+    required: true
   }
 });
 
 const MenuItem = mongoose.model("MenuItem", menuItemSchema);
 
-function validate(menuItem) {
+function joiValidation(menuItem) {
   const schema = {
-    name: Joi.string()
+    title: Joi.string()
+      .min(5)
+      .max(50)
+      .required(),
+    description: Joi.string()
+      .min(5)
+      .max(100)
+      .required(),
+    price: Joi.number()
+      .min(1)
+      .max(100)
+      .required(),
+    category: Joi.string()
       .min(5)
       .max(50)
       .required()
@@ -35,4 +54,4 @@ function validate(menuItem) {
 }
 
 exports.MenuItem = MenuItem;
-exports.validate = validate;
+exports.joiValidation = joiValidation;

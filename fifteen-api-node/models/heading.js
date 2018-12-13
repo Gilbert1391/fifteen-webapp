@@ -17,7 +17,7 @@ const headingSchema = new mongoose.Schema({
 
 const Heading = mongoose.model("Heading", headingSchema);
 
-function validate(heading) {
+function joiValidation(heading) {
   const schema = {
     heading: Joi.string()
       .min(5)
@@ -32,4 +32,4 @@ function validate(heading) {
 }
 
 exports.Heading = Heading;
-exports.validate = validate;
+exports.joiValidation = joiValidation;

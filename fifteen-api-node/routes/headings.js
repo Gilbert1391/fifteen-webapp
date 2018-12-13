@@ -1,15 +1,13 @@
+const { Heading, joiValidation } = require("../models/heading");
+const validate = require("../middleware/validate");
 const router = require("express").Router();
-const { Heading, validate } = require("../models/heading");
 
 router.get("/", async (req, res) => {
   const headings = await Heading.find();
   res.send(headings);
 });
 
-router.put("/:id", async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
+router.put("/:id", validate(joiValidation), async (req, res) => {
   const heading = await Heading.findByIdAndUpdate(
     req.params.id,
     {
@@ -20,7 +18,7 @@ router.put("/:id", async (req, res) => {
   );
 
   if (!heading) {
-    return res.status(404).send("Resource not found");
+    return res.status(404).send("The resource with the given ID was not found");
   }
 
   res.send(heading);

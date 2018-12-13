@@ -1,13 +1,15 @@
 const { Heading } = require("./models/heading");
-const express = require("express");
-const app = express();
+const mongoose = require("mongoose");
+const config = require("config");
 
-require("./startup/db")();
+async function init() {
+  mongoose.connect(
+    config.get("db"),
+    { useNewUrlParser: true }
+  );
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+  await Heading.deleteMany({});
 
-async function create() {
   const heading = new Heading({
     heading: "The best food in the city",
     subHeading: "Cooking is our passion"
@@ -19,6 +21,10 @@ async function create() {
   } catch (ex) {
     console.log(ex.message);
   }
+
+  mongoose.disconnect();
+
+  console.info("Done");
 }
 
-create();
+init();

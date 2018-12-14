@@ -1,14 +1,23 @@
-const express = require("express");
-const router = express.Router();
 const validate = require("../middleware/validate");
 const validateObjectId = require("../middleware/validateObjectId");
 const { Menu, joiValidation } = require("../models/menu");
+const express = require("express");
+const router = express.Router();
 
 router.get("/", async (req, res) => {
   const items = await Menu.find()
     .select("-__v")
     .sort("price");
   res.send(items);
+});
+
+router.get("/:id", validateObjectId, async (req, res) => {
+  const item = await Menu.findById(req.params.id).select("-__v");
+
+  if (!item)
+    return res.status(404).send("The Item with the given ID was not found.");
+
+  res.send(item);
 });
 
 router.post("/", validate(joiValidation), async (req, res) => {
@@ -27,7 +36,7 @@ router.put(
   "/:id",
   [validate(joiValidation), validateObjectId],
   async (req, res) => {
-    const item = await MenuItem.findByIdAndUpdate(
+    const item = await Menu.findByIdAndUpdate(
       req.params.id,
       {
         title: req.body.title,
@@ -39,9 +48,7 @@ router.put(
     );
 
     if (!item) {
-      return res
-        .status(404)
-        .send("The resource with the given ID was not found");
+      return res.status(404).send("The Item with the given ID was not found.");
     }
 
     res.send(item);
@@ -49,10 +56,10 @@ router.put(
 );
 
 router.delete("/:id", validateObjectId, async (req, res) => {
-  const item = await MenuItem.findByIdAndRemove(req.params.id);
+  const item = await Menu.findByIdAndRemove(req.params.id);
 
   if (!item) {
-    return res.status(404).send("The resource with the given ID was not found");
+    return res.status(404).send("The Item with the given ID was not found.");
   }
 
   res.send(item);

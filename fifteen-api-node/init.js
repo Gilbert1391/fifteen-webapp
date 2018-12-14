@@ -1,6 +1,8 @@
 const { Heading } = require("./models/heading");
-const mongoose = require("mongoose");
+const { Admin } = require("./models/admin");
 const config = require("config");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 async function init() {
   mongoose.connect(
@@ -9,6 +11,9 @@ async function init() {
   );
 
   await Heading.deleteMany({});
+  await Admin.deleteMany({});
+
+  // Create heading
 
   const heading = new Heading({
     heading: "The best food in the city",
@@ -16,8 +21,23 @@ async function init() {
   });
 
   try {
-    const result = await heading.save();
-    console.log(result);
+    await heading.save();
+  } catch (ex) {
+    console.log(ex.message);
+  }
+
+  // create admin
+
+  const admin = new Admin({
+    username: "admin",
+    password: "12345"
+  });
+
+  const salt = await bcrypt.genSalt(10);
+  admin.password = await bcrypt.hash(admin.password, salt);
+
+  try {
+    await admin.save({ username: admin.username });
   } catch (ex) {
     console.log(ex.message);
   }

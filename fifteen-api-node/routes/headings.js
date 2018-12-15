@@ -1,6 +1,7 @@
 const { Heading, joiValidation } = require("../models/heading");
 const validate = require("../middleware/validate");
 const validateObjectId = require("../middleware/validateObjectId");
+const auth = require("../middleware/auth");
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
 
 router.put(
   "/:id",
-  [validate(joiValidation), validateObjectId],
+  [auth, validate(joiValidation), validateObjectId],
   async (req, res) => {
     const heading = await Heading.findByIdAndUpdate(
       req.params.id,

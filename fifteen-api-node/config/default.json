@@ -1,3 +1,5 @@
 {
-  "db": "mongodb://localhost/fifteen"
+  "db": "mongodb://localhost/fifteen",
+  "jwtPrivateKey": "",
+  "adminPassword": ""
 }

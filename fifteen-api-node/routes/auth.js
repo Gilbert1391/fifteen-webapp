@@ -1,6 +1,8 @@
 const { Admin, joiValidation } = require("../models/admin");
+const config = require("config");
 const validate = require("../middleware/validate");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const express = require("express");
 const router = express.Router();
 
@@ -9,11 +11,12 @@ router.post("/", validate(joiValidation), async (req, res) => {
   if (!admin) return res.status(400).send("Invalid username or password.");
 
   const validPassword = await bcrypt.compare(req.body.password, admin.password);
-  if (!validPassword)
+  if (!validPassword) {
     return res.status(400).send("Invalid username or password.");
+  }
 
-  //   const token = admin.generateAuthToken();
-  res.send(true);
+  const token = jwt.sign({ _id: admin._id }, config.get("jwtPrivateKey"));
+  res.header("x-auth-token", token).send(token);
 });
 
 module.exports = router;

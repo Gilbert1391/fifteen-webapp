@@ -1,6 +1,7 @@
+const { Menu, joiValidation } = require("../models/menu");
 const validate = require("../middleware/validate");
 const validateObjectId = require("../middleware/validateObjectId");
-const { Menu, joiValidation } = require("../models/menu");
+const auth = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 
@@ -20,7 +21,7 @@ router.get("/:id", validateObjectId, async (req, res) => {
   res.send(item);
 });
 
-router.post("/", validate(joiValidation), async (req, res) => {
+router.post("/", [auth, validate(joiValidation)], async (req, res) => {
   const item = new Menu({
     title: req.body.title,
     description: req.body.description,
@@ -34,7 +35,7 @@ router.post("/", validate(joiValidation), async (req, res) => {
 
 router.put(
   "/:id",
-  [validate(joiValidation), validateObjectId],
+  [auth, validate(joiValidation), validateObjectId],
   async (req, res) => {
     const item = await Menu.findByIdAndUpdate(
       req.params.id,
@@ -55,7 +56,7 @@ router.put(
   }
 );
 
-router.delete("/:id", validateObjectId, async (req, res) => {
+router.delete("/:id", [auth, validateObjectId], async (req, res) => {
   const item = await Menu.findByIdAndRemove(req.params.id);
 
   if (!item) {

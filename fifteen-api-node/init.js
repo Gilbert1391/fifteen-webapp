@@ -31,10 +31,11 @@ async function init() {
   const admin = new Admin({
     username: "admin",
     password: "12345"
+    // password: config.get("adminPassword")
   });
 
-  const salt = await bcrypt.genSalt(10);
-  admin.password = await bcrypt.hash(admin.password, salt);
+  //const salt = await bcrypt.genSalt(10);
+  //admin.password = await bcrypt.hash(admin.password, salt);
 
   try {
     await admin.save({ username: admin.username });

@@ -5,28 +5,36 @@ const auth = require("../middleware/auth");
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
-  const headings = await Heading.find();
-  res.send(headings);
+  try {
+    const headings = await Heading.find();
+    res.send(headings);
+  } catch (ex) {
+    next(ex);
+  }
 });
 
 router.put(
   "/:id",
   [auth, validate(joiValidation), validateObjectId],
   async (req, res) => {
-    const heading = await Heading.findByIdAndUpdate(
-      req.params.id,
-      {
-        heading: req.body.heading,
-        subHeading: req.body.subHeading
-      },
-      { new: true }
-    );
+    try {
+      const heading = await Heading.findByIdAndUpdate(
+        req.params.id,
+        {
+          heading: req.body.heading,
+          subHeading: req.body.subHeading
+        },
+        { new: true }
+      );
 
-    if (!heading) {
-      return res.status(404).send("The item with the given ID was not found");
+      if (!heading) {
+        return res.status(404).send("The item with the given ID was not found");
+      }
+
+      res.send(heading);
+    } catch (ex) {
+      next(ex);
     }
-
-    res.send(heading);
   }
 );
 

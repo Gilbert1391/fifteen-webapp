@@ -1,4 +1,3 @@
 {
-  "jwtPrivateKey": "fifteen_jwtPrivateKey",
-  "adminPassword": "fifteen_adminPassword"
+  "jwtPrivateKey": "fifteen_jwtPrivateKey"
 }

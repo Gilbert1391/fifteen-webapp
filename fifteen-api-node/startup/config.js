@@ -6,10 +6,10 @@ module.exports = function() {
     process.exit(1);
   }
 
-  console.log(config.get("adminPassword"));
+  // console.log(config.get("adminPassword"));
 
-  if (!config.get("adminPassword")) {
-    console.error("FATAL ERROR: adminPassword is not defined");
-    process.exit(1);
-  }
+  // if (!config.get("adminPassword")) {
+  //   console.error("FATAL ERROR: adminPassword is not defined");
+  //   process.exit(1);
+  // }
 };

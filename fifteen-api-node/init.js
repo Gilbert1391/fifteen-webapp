@@ -1,5 +1,6 @@
 const { Heading } = require("./models/heading");
 const { Admin } = require("./models/admin");
+const { password: adminPassword } = require("./config/dev");
 const config = require("config");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -30,12 +31,11 @@ async function init() {
 
   const admin = new Admin({
     username: "admin",
-    password: "12345"
-    // password: config.get("adminPassword")
+    password: adminPassword
   });
 
-  //const salt = await bcrypt.genSalt(10);
-  //admin.password = await bcrypt.hash(admin.password, salt);
+  const salt = await bcrypt.genSalt(10);
+  admin.password = await bcrypt.hash(admin.password, salt);
 
   try {
     await admin.save({ username: admin.username });

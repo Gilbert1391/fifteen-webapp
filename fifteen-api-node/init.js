@@ -15,7 +15,6 @@ async function init() {
   await Admin.deleteMany({});
 
   // Create heading
-
   const heading = new Heading({
     heading: "The best food in the city",
     subHeading: "Cooking is our passion"
@@ -28,7 +27,6 @@ async function init() {
   }
 
   // create admin
-
   const admin = new Admin({
     username: "admin",
     password: adminPassword

@@ -7,9 +7,25 @@
   border-bottom: 3px solid $color-white;
   text-align: center;
 
+  &--dark {
+    color: #222;
+    border-top: 3px solid #222;
+    border-bottom: 3px solid #222;
+  }
+
   &__heading {
+    display: block;
     font-size: 4rem;
     font-weight: 900;
     letter-spacing: 1.3rem;
+    margin-right: -1.3rem;
+  }
+
+  &__sub-heading {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.8rem;
+    padding-bottom: 1rem;
   }
 }

@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+
+  &__item {
+    list-style: none;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-right: 6rem;
+    }
+  }
+
+  &__link {
+    color: $color-light-gray;
+    text-decoration: none;
+  }
+}

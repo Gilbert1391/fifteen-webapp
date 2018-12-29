@@ -1,0 +1,12 @@
+.about {
+  width: 70%;
+
+  &__heading {
+    font-size: 3rem;
+    margin-bottom: 6rem;
+  }
+
+  &__paragraph:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}

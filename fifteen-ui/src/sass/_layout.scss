@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  padding: 6rem 10rem;
+}
+
+.about-us {
+  display: flex;
+  justify-content: space-between;
+}

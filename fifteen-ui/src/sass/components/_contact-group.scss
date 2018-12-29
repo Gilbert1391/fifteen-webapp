@@ -1,0 +1,14 @@
+.contact {
+  width: 20%;
+
+  &__group:not(:last-child) {
+    margin-bottom: 6rem;
+  }
+
+  &__heading {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: $color-orange;
+  }
+}

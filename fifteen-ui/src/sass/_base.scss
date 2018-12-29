@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+// VARIABLES
+$margin-6: 6rem;
+$color-white: #fff;
+$color-light-gray: #e7e6fc;
+$color-gray: #3e3939;
+$color-dark-gray: #332f2f;
+$color-orange: #ff7517;
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,600,700");
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #222;
+}

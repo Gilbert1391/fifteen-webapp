@@ -1,5 +1,5 @@
 .hero {
-  height: 115vh;
+  height: 125vh;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -23,5 +23,17 @@
   &__sub-heading {
     font-size: 4rem;
     color: $color-orange;
+  }
+}
+
+.cocktails {
+  // height: 190vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: $color-white;
+
+  &__flex {
+    display: flex;
   }
 }

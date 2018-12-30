@@ -6,9 +6,43 @@
 
 .container {
   padding: 6rem 10rem;
+
+  &--big {
+    padding: 14rem 10rem;
+  }
 }
 
 .about-us {
   display: flex;
   justify-content: space-between;
+}
+
+.reservation {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+
+  &__heading {
+    color: $color-orange;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  &__paragraph {
+    margin-bottom: 2rem;
+  }
+}
+
+.footer {
+  background: #222;
+  color: $color-white;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.copyright {
+  margin-top: 2rem;
 }

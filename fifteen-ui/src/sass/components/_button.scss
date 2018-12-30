@@ -1,0 +1,17 @@
+.cta {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-white;
+  background: $color-gray;
+  padding: 1.2rem 2.5rem;
+  border-radius: 2.5rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 300ms;
+
+  &:hover {
+    color: $color-orange;
+    background: $color-dark-gray;
+  }
+}

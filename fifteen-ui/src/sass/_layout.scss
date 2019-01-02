@@ -25,7 +25,8 @@
   &__heading {
     color: $color-orange;
     text-align: center;
-    font-weight: 600;
+    font-size: 4.5rem;
+    font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
@@ -45,4 +46,11 @@
 
 .copyright {
   margin-top: 2rem;
+}
+
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

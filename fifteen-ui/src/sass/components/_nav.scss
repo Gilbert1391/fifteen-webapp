@@ -14,5 +14,28 @@
   &__link {
     color: $color-light-gray;
     text-decoration: none;
+    cursor: pointer;
+    transition: color 300ms;
+
+    &:hover {
+      color: $color-orange;
+    }
   }
+}
+
+.nav-link-active {
+  color: $color-orange;
+}
+
+.sticky {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
+  background: #222;
+  left: 0;
+  top: 0;
+  z-index: 10;
 }

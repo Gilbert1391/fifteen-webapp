@@ -1,8 +1,9 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import Header from "./header";
 import heroImg from "../img/hero-bg.jpg";
 
-const Hero = () => {
+const Hero = ({ data, show }) => {
   const bg = {
     backgroundImage: `linear-gradient(
         to bottom,
@@ -14,10 +15,11 @@ const Hero = () => {
 
   return (
     <section className="hero" id="home" style={bg}>
-      <Header />
+      <Header show={show} />
+
       <div className="hero__content">
-        <h1 className="hero__heading">The best food in the city</h1>
-        <p className="hero__sub-heading">Cooking is our passion</p>
+        <h1 className="hero__heading">{data.heading}</h1>
+        <p className="hero__sub-heading">{data.subHeading}</p>
       </div>
     </section>
   );

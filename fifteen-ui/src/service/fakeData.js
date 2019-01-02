@@ -1,23 +1,23 @@
-export const data = [
+export const getData = [
   {
     title: "Primavera Salad",
     description: "arugula, cherry tomato, shaved almonds, shallot vinaigrette",
     price: 10,
-    category: "snacks",
+    category: "snack",
     _id: 1
   },
   {
     title: "Grilled Calamari",
     description: "tomato sauce, lemon",
     price: 12,
-    category: "snacks",
+    category: "snack",
     _id: 2
   },
   {
     title: "Mac and Cheese",
     description: "cheddar, gruyere, gouda, truffle oil",
     price: 13,
-    category: "snacks",
+    category: "snack",
     _id: 3
   },
   {
@@ -56,3 +56,8 @@ export const data = [
     _id: 8
   }
 ];
+
+export const getHeading = {
+  heading: "The best food in the city",
+  subHeading: "Cooking is our passion"
+};

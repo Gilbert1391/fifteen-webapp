@@ -11,6 +11,7 @@ const FooterNav = () => {
           <a
             href="https://twitter.com/"
             target="_blank"
+            rel="noopener noreferrer"
             className="footer-nav__link"
           >
             <img src={twitter} alt="Twitter icon" className="footer-nav__img" />
@@ -20,6 +21,7 @@ const FooterNav = () => {
           <a
             href="https://instagram.com/"
             target="_blank"
+            rel="noopener noreferrer"
             className="footer-nav__link"
           >
             <img
@@ -33,6 +35,7 @@ const FooterNav = () => {
           <a
             href="https://vimeo.com/"
             target="_blank"
+            rel="noopener noreferrer"
             className="footer-nav__link"
           >
             <img src={vimeo} alt="Vimeo icon" className="footer-nav__img" />

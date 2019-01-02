@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-scroll";
 
-const Nav = () => {
+const Nav = ({ onActive, onInactive }) => {
   return (
     <ul className="nav">
       <li className="nav__item">
@@ -11,6 +11,7 @@ const Nav = () => {
           to="home"
           spy={true}
           smooth={true}
+          onSetActive={onInactive}
         >
           Home
         </Link>
@@ -22,6 +23,7 @@ const Nav = () => {
           to="about"
           spy={true}
           smooth={true}
+          onSetActive={onActive}
         >
           About us
         </Link>

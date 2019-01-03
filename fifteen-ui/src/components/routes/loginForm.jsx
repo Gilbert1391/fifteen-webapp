@@ -13,16 +13,14 @@ class LoginForm extends Component {
   };
 
   schema = {
-    name: {
-      username: Joi.string()
-        .max(50)
-        .label("Username")
-        .required(),
-      password: Joi.string()
-        .max(50)
-        .label("Password")
-        .required()
-    }
+    username: Joi.string()
+      .max(50)
+      .label("Username")
+      .required(),
+    password: Joi.string()
+      .max(50)
+      .label("Password")
+      .required()
   };
 
   validate = () => {
@@ -43,7 +41,6 @@ class LoginForm extends Component {
     e.preventDefault();
 
     const errors = this.validate();
-
     this.setState({ errors: errors || {} });
     if (errors) return;
 

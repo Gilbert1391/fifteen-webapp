@@ -1,6 +1,6 @@
 .footer-nav {
   padding: 3rem 0;
-  background: $color-gray;
+  background-color: $color-gray;
   display: flex;
   justify-content: center;
 
@@ -20,7 +20,7 @@
 
     &:hover {
       border: none;
-      background: $color-orange;
+      background-color: $color-orange;
     }
   }
 
@@ -32,7 +32,7 @@
     align-items: center;
   }
 
-  &__img {
-    height: 50%;
+  &__icon {
+    color: $color-white;
   }
 }

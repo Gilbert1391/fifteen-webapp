@@ -1,11 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const Input = ({ name, label, value, onChange, error }) => {
+const Input = ({ type = "text", name, label, value, onChange, error }) => {
   return (
     <div className="form__group">
       {error && (
         <div className="form__alert">
-          <i className="fa fa-times form__alert--icon" />
+          <FontAwesomeIcon
+            icon={faTimes}
+            className="fa fa-times form__alert--icon"
+          />
           {error}
         </div>
       )}
@@ -13,9 +18,9 @@ const Input = ({ name, label, value, onChange, error }) => {
         {label}
       </label>
       <input
-        id={name}
-        type="text"
         className="form__input"
+        id={name}
+        type={type}
         name={name}
         value={value}
         onChange={onChange}

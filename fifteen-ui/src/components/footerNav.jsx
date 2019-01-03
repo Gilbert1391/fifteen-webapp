@@ -1,7 +1,10 @@
 import React from "react";
-import twitter from "../img/twitter.png";
-import instagram from "../img/instagram.png";
-import vimeo from "../img/vimeo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faInstagram,
+  faVimeoV
+} from "@fortawesome/free-brands-svg-icons";
 
 const FooterNav = () => {
   return (
@@ -14,7 +17,11 @@ const FooterNav = () => {
             rel="noopener noreferrer"
             className="footer-nav__link"
           >
-            <img src={twitter} alt="Twitter icon" className="footer-nav__img" />
+            <FontAwesomeIcon
+              icon={faTwitter}
+              size="lg"
+              className="footer-nav__icon"
+            />
           </a>
         </li>
         <li className="footer-nav__item">
@@ -24,10 +31,10 @@ const FooterNav = () => {
             rel="noopener noreferrer"
             className="footer-nav__link"
           >
-            <img
-              src={instagram}
-              alt="Instagram icon"
-              className="footer-nav__img"
+            <FontAwesomeIcon
+              icon={faInstagram}
+              size="lg"
+              className="footer-nav__icon"
             />
           </a>
         </li>
@@ -38,7 +45,11 @@ const FooterNav = () => {
             rel="noopener noreferrer"
             className="footer-nav__link"
           >
-            <img src={vimeo} alt="Vimeo icon" className="footer-nav__img" />
+            <FontAwesomeIcon
+              icon={faVimeoV}
+              size="lg"
+              className="footer-nav__icon"
+            />
           </a>
         </li>
       </ul>

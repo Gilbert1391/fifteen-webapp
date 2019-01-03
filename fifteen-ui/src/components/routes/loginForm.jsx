@@ -73,6 +73,7 @@ class LoginForm extends Component {
             onChange={this.handleChange}
           />
           <Input
+            type={"password"}
             name={"password"}
             label={"Password"}
             value={login.password}

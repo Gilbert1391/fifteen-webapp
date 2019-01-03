@@ -2,7 +2,7 @@ import React from "react";
 import DrinkList from "./drinkList";
 import cocktailImg from "../img/cocktail.jpg";
 
-const Cocktails = ({ data }) => {
+const Drinks = ({ data }) => {
   // data = [];
   const cocktails = data.filter(item => item.category === "cocktail");
   const wines = data.filter(item => item.category === "wine");
@@ -31,4 +31,4 @@ const Cocktails = ({ data }) => {
   );
 };
 
-export default Cocktails;
+export default Drinks;

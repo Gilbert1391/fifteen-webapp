@@ -4,7 +4,7 @@ import { getData, getHeading } from "../../service/fakeData";
 import Hero from "../hero";
 import About from "../about";
 import Menu from "../menu";
-import Cocktails from "../cocktails";
+import Drinks from "../drinks";
 import Reservation from "../reservation";
 import Footer from "../footer";
 
@@ -37,7 +37,7 @@ class Home extends Component {
         <main>
           <About />
           <Menu data={data} />
-          <Cocktails data={data} />
+          <Drinks data={data} />
           <Reservation />
         </main>
         <Footer />

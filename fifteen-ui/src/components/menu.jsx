@@ -2,9 +2,11 @@ import React from "react";
 import MenuList from "./menuList";
 
 const Menu = ({ data }) => {
-  const snacks = data.filter(item => item.category === "snack");
-  const sandwiches = data.filter(item => item.category === "sandwich");
-  const mains = data.filter(item => item.category === "main");
+  const snacks = data.filter(item => item.category.toLowerCase() === "snack");
+  const sandwiches = data.filter(
+    item => item.category.toLowerCase() === "sandwich"
+  );
+  const mains = data.filter(item => item.category.toLowerCase() === "main");
 
   return (
     <section className="container" id="menu">

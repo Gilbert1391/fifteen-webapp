@@ -1,0 +1,45 @@
+.form {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 5rem;
+
+  &__group {
+    width: 100%;
+    color: #222;
+    padding: 1rem;
+  }
+
+  &__heading {
+    display: block;
+    font-size: 1.8rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 1.2rem;
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    border-radius: 5px;
+
+    &:focus {
+      background-color: $color-white;
+    }
+  }
+
+  &__alert {
+    display: inline-block;
+    color: #fff;
+    background: #cc3b3b;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    padding-left: 0.8rem;
+    border-radius: 2px;
+    margin: 1rem 0;
+
+    &--icon {
+      margin-right: 1rem;
+    }
+  }
+}

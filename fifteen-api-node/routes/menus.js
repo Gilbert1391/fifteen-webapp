@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   const items = await Menu.find()
     .select("-__v")
-    .sort("price");
+    .sort("category");
   res.send(items);
 });
 

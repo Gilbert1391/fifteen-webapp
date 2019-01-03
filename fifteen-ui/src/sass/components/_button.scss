@@ -1,4 +1,4 @@
-.cta {
+.btn {
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -6,8 +6,10 @@
   background: $color-gray;
   padding: 1.2rem 2.5rem;
   border-radius: 2.5rem;
+  outline: none;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
   transition: all 300ms;
 
   &:hover {

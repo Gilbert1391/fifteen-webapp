@@ -22,7 +22,7 @@ const menuSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    minlength: 5,
+    minlength: 4,
     maxlength: 50,
     required: true
   }
@@ -45,7 +45,7 @@ function joiValidation(menu) {
       .max(100)
       .required(),
     category: Joi.string()
-      .min(5)
+      .min(4)
       .max(50)
       .required()
   };

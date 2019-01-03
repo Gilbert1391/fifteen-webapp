@@ -2,3 +2,9 @@
 {"level":"error","message":"Something went wrong during startup"}
 {"level":"error","message":"Something failed!"}
 {"level":"error","message":"Something failed!"}
+{"message":"Listening on port 3000...","level":"info"}
+{"message":"Listening on port 3000...","level":"info"}
+{"message":"Listening on port 3000...","level":"info"}
+{"message":"Listening on port 3900...","level":"info"}
+{"message":"Listening on port 3900...","level":"info"}
+{"message":"Listening on port 3900...","level":"info"}

@@ -5,7 +5,7 @@ const auth = require("../middleware/auth");
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
-  const headings = await Heading.find();
+  const headings = await Heading.find().select("-__v");
   res.send(headings);
 });
 

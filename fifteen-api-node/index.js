@@ -1,4 +1,4 @@
-const error = require("./middleware/error");
+const winston = require("winston");
 const express = require("express");
 const app = express();
 
@@ -6,7 +6,7 @@ require("./startup/logging")();
 require("./startup/config")();
 require("./startup/db")();
 require("./startup/routes")(app);
-app.use(error);
+require("./startup/prod")(app);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+const port = process.env.PORT || 3900;
+app.listen(port, () => winston.info(`Listening on port ${port}...`));

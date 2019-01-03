@@ -13,7 +13,7 @@ const Reservation = () => {
           href="https://www.opentable.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="cta"
+          className="btn"
         >
           Find a table
         </a>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Joi from "joi-browser";
+import Input from "../common/input";
 
 class LoginForm extends Component {
   state = {
@@ -56,9 +58,36 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { contact, errors } = this.state;
+    const { login, errors } = this.state;
 
-    return <div className="center">Login Form</div>;
+    return (
+      <section>
+        <div className="logo logo--dark ">
+          <Link to="/" className="logo__heading">
+            Fifteen
+          </Link>
+        </div>
+        <form className="form" onSubmit={this.handleSubmit}>
+          <Input
+            name={"username"}
+            label={"Username"}
+            value={login.username}
+            error={errors.username}
+            onChange={this.handleChange}
+          />
+          <Input
+            name={"password"}
+            label={"Password"}
+            value={login.password}
+            error={errors.password}
+            onChange={this.handleChange}
+          />
+          <div className="form__group">
+            <button className="btn">Login</button>
+          </div>
+        </form>
+      </section>
+    );
   }
 }
 

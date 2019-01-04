@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { Link as LinkRouter } from "react-router-dom";
 
 const Nav = ({ onActive, onInactive }) => {
   return (
@@ -60,6 +61,11 @@ const Nav = ({ onActive, onInactive }) => {
         >
           Reservation
         </Link>
+      </li>
+      <li className="nav__item">
+        <LinkRouter to="/menu-item/new" className="nav__link">
+          New item
+        </LinkRouter>
       </li>
     </ul>
   );

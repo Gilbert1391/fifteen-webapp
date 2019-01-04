@@ -2,13 +2,12 @@ import React from "react";
 import DrinkList from "./drinkList";
 import cocktailImg from "../img/cocktail.jpg";
 
-const Drinks = ({ data }) => {
-  // data = [];
-  const cocktails = data.filter(item => item.category === "cocktail");
-  const wines = data.filter(item => item.category === "wine");
-  const beers = data.filter(item => item.category === "beer");
-
-  // const beers = [];
+const Drinks = ({ data, onDelete }) => {
+  const cocktails = data.filter(
+    item => item.category.toLowerCase() === "cocktail"
+  );
+  const wines = data.filter(item => item.category.toLowerCase() === "wine");
+  const beers = data.filter(item => item.category.toLowerCase() === "beer");
 
   const bg = {
     backgroundImage: `linear-gradient(
@@ -23,9 +22,9 @@ const Drinks = ({ data }) => {
         <span className="logo__sub-heading">Bar</span>
       </div>
       <div className="cocktails__flex">
-        <DrinkList data={cocktails} heading={"Cocktails"} />
-        <DrinkList data={wines} heading={"Wine"} />
-        <DrinkList data={beers} heading={"Beers"} />
+        <DrinkList data={cocktails} onDelete={onDelete} heading={"Cocktails"} />
+        <DrinkList data={wines} onDelete={onDelete} heading={"Wine"} />
+        <DrinkList data={beers} onDelete={onDelete} heading={"Beers"} />
       </div>
     </section>
   );

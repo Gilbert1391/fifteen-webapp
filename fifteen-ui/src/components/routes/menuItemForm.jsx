@@ -62,14 +62,14 @@ class MenuItemForm extends Component {
 
     // Call server
     console.log("Submitted");
-    this.handlePostData();
+    this.doSubmit();
   };
 
-  handlePostData = () => {
+  doSubmit = () => {
     const { data } = this.state;
     const item = {
       title: data.title,
-      category: "main",
+      category: data.category,
       price: data.price,
       description: data.description
     };
@@ -97,7 +97,7 @@ class MenuItemForm extends Component {
         <form className="form" onSubmit={this.handleSubmit}>
           <Input
             name={"title"}
-            label={"Title"}
+            label={"Title *"}
             value={data.title}
             error={errors.title}
             onChange={this.handleChange}
@@ -105,14 +105,14 @@ class MenuItemForm extends Component {
           <SelectInput onChange={this.handleChange} error={errors.category} />
           <Input
             name={"price"}
-            label={"Price"}
+            label={"Price *"}
             value={data.price}
             error={errors.price}
             onChange={this.handleChange}
           />
           <TextArea
             name={"description"}
-            label={"Description"}
+            label={"Description *"}
             value={data.description}
             error={errors.description}
             onChange={this.handleChange}

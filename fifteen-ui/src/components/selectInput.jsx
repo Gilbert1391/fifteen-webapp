@@ -15,7 +15,7 @@ const SelectInput = ({ onChange, error }) => {
         </div>
       )}
       <label htmlFor="category" className="form__heading">
-        Category
+        Category *
       </label>
       <select
         name="category"

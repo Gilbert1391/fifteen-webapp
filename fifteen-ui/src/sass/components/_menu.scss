@@ -23,11 +23,13 @@
 .menu-item-drink {
   width: 100%;
   margin-bottom: 3rem;
+  position: relative;
 }
 
 .menu-item {
   width: calc(100% / 3 - 4.5rem);
   margin-bottom: 3rem;
+  position: relative;
 
   &:not(:last-child) {
     margin-right: 4.5rem;

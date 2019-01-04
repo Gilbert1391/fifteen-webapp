@@ -17,3 +17,30 @@
     background: $color-dark-gray;
   }
 }
+
+.item-btn {
+  position: absolute;
+  top: -2.5rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: $color-orange;
+  background-color: $color-dark-gray;
+
+  &--light {
+    color: $color-dark-gray;
+    background-color: $color-white;
+  }
+
+  &--edit {
+    right: 3.5rem;
+  }
+
+  &--delete {
+    right: 0;
+  }
+}

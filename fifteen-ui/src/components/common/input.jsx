@@ -7,10 +7,7 @@ const Input = ({ type = "text", name, label, value, onChange, error }) => {
     <div className="form__group">
       {error && (
         <div className="form__alert">
-          <FontAwesomeIcon
-            icon={faTimes}
-            className="fa fa-times form__alert--icon"
-          />
+          <FontAwesomeIcon icon={faTimes} className="form__alert--icon" />
           {error}
         </div>
       )}

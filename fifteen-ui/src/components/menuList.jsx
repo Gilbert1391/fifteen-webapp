@@ -1,6 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-const MenuList = ({ data, heading }) => {
+const MenuList = ({ data, onDelete, heading }) => {
   return (
     <div className="menu-section">
       <h3 className="menu-section__heading">{heading}</h3>
@@ -8,6 +10,15 @@ const MenuList = ({ data, heading }) => {
       <div className="menu-section__flex">
         {data.map(item => (
           <div className="menu-item" key={item._id}>
+            <button className="item-btn item-btn--edit">
+              <FontAwesomeIcon icon={faPencilAlt} />
+            </button>
+            <button
+              onClick={() => onDelete(item._id)}
+              className="item-btn item-btn--delete"
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
             <div className="menu-item__flex">
               <h4 className="menu-item__heading">{item.title}</h4>
               <p>{"$" + item.price}</p>

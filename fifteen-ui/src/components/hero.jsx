@@ -16,8 +16,8 @@ const Hero = ({ data }) => {
     <section className="hero" id="home" style={bg}>
       <Header />
       <div className="hero__content">
-        <h1 className="hero__heading">{data.heading}</h1>
-        <p className="hero__sub-heading">{data.subHeading}</p>
+        <h1 className="hero__heading">{data[0].heading}</h1>
+        <p className="hero__sub-heading">{data[0].subHeading}</p>
       </div>
     </section>
   );

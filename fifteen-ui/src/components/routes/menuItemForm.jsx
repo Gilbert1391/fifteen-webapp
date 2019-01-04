@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Joi from "joi-browser";
-import { getData } from "../../service/fakeData";
+import { getItem, saveItem } from "../../service/dataService";
 import Input from "../common/input";
 import TextArea from "../common/textArea";
 import SelectInput from "../selectInput";
@@ -17,7 +17,30 @@ class MenuItemForm extends Component {
     errors: {}
   };
 
+  async componentDidMount() {
+    const itemId = this.props.match.params.id;
+    if (itemId === "new") return;
+
+    try {
+      const { data: item } = await getItem(itemId);
+      this.setState({
+        data: {
+          _id: item._id,
+          title: item.title,
+          category: item.category,
+          price: item.price,
+          description: item.description
+        }
+      });
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404) {
+        this.props.history.replace("/not-found");
+      }
+    }
+  }
+
   schema = {
+    _id: Joi.string(),
     title: Joi.string()
       .min(5)
       .max(50)
@@ -61,19 +84,12 @@ class MenuItemForm extends Component {
     if (errors) return;
 
     // Call server
-    console.log("Submitted");
     this.doSubmit();
   };
 
-  doSubmit = () => {
-    const { data } = this.state;
-    const item = {
-      title: data.title,
-      category: data.category,
-      price: data.price,
-      description: data.description
-    };
-    getData.push(item);
+  doSubmit = async () => {
+    console.log("Submitted");
+    await saveItem(this.state.data);
     this.props.history.push("/");
   };
 
@@ -102,7 +118,11 @@ class MenuItemForm extends Component {
             error={errors.title}
             onChange={this.handleChange}
           />
-          <SelectInput onChange={this.handleChange} error={errors.category} />
+          <SelectInput
+            data={data}
+            onChange={this.handleChange}
+            error={errors.category}
+          />
           <Input
             name={"price"}
             label={"Price *"}

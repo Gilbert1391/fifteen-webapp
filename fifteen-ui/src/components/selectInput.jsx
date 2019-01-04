@@ -2,7 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const SelectInput = ({ onChange, error }) => {
+const SelectInput = ({ data, onChange, error }) => {
+  const options = ["Snack", "Sandwich", "Main", "Cocktail", "Wine", "Beer"];
+  const categories = options.filter(option => option !== data.category);
+
   return (
     <div className="form__group">
       {error && (
@@ -23,13 +26,10 @@ const SelectInput = ({ onChange, error }) => {
         className="form__input "
         onChange={onChange}
       >
-        <option value="" />
-        <option>Snack</option>
-        <option>Sandwich</option>
-        <option>Main</option>
-        <option>Cocktail</option>
-        <option>Wine</option>
-        <option>Beer</option>
+        <option>{data.category}</option>
+        {categories.map(el => (
+          <option key={el}>{el}</option>
+        ))}
       </select>
     </div>
   );

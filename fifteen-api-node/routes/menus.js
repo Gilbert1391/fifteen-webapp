@@ -24,9 +24,9 @@ router.get("/:id", validateObjectId, async (req, res) => {
 router.post("/", [auth, validate(joiValidation)], async (req, res) => {
   const item = new Menu({
     title: req.body.title,
-    description: req.body.description,
+    category: req.body.category,
     price: req.body.price,
-    category: req.body.category
+    description: req.body.description
   });
 
   await item.save();
@@ -41,9 +41,9 @@ router.put(
       req.params.id,
       {
         title: req.body.title,
-        description: req.body.description,
+        category: req.body.category,
         price: req.body.price,
-        category: req.body.category
+        description: req.body.description
       },
       { new: true }
     );

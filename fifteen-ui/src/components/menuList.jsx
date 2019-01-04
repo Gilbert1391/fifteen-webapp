@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,9 +11,11 @@ const MenuList = ({ data, onDelete, heading }) => {
       <div className="menu-section__flex">
         {data.map(item => (
           <div className="menu-item" key={item._id}>
-            <button className="item-btn item-btn--edit">
-              <FontAwesomeIcon icon={faPencilAlt} />
-            </button>
+            <Link to={`/menu-item/${item._id}`}>
+              <button className="item-btn item-btn--edit">
+                <FontAwesomeIcon icon={faPencilAlt} />
+              </button>
+            </Link>
             <button
               onClick={() => onDelete(item._id)}
               className="item-btn item-btn--delete"

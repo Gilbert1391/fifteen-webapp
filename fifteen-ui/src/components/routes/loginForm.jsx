@@ -45,6 +45,10 @@ class LoginForm extends Component {
     if (errors) return;
 
     // Call server
+    this.doSubmit();
+  };
+
+  doSubmit = () => {
     console.log("Submitted");
   };
 

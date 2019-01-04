@@ -8,10 +8,10 @@ const menuSchema = new mongoose.Schema({
     maxlength: 50,
     required: true
   },
-  description: {
+  category: {
     type: String,
-    minlength: 5,
-    maxlength: 100,
+    minlength: 4,
+    maxlength: 50,
     required: true
   },
   price: {
@@ -20,10 +20,10 @@ const menuSchema = new mongoose.Schema({
     max: 100,
     required: true
   },
-  category: {
+  description: {
     type: String,
-    minlength: 4,
-    maxlength: 50,
+    minlength: 5,
+    maxlength: 100,
     required: true
   }
 });

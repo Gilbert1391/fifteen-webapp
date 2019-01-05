@@ -5,6 +5,7 @@ import jwtDecode from "jwt-decode";
 import Home from "./components/routes/home";
 import MenuItemForm from "./components/routes/menuItemForm";
 import LoginForm from "./components/routes/loginForm";
+import Logout from "./components/routes/logout";
 import NotFound from "./components/routes/notFound";
 import "react-toastify/dist/ReactToastify.css";
 import "./main.scss";
@@ -26,6 +27,7 @@ class App extends Component {
         <Switch>
           <Route path="/menu-item/:id" component={MenuItemForm} />
           <Route path="/admin" component={LoginForm} />
+          <Route path="/logout" component={Logout} />
           <Route path="/not-found" component={NotFound} />
           <Route
             path="/"

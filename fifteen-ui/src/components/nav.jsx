@@ -70,7 +70,7 @@ const Nav = ({ onActive, onInactive, admin }) => {
             </LinkRouter>
           </li>
           <li className="nav__item">
-            <LinkRouter to="/admin" className="nav__link">
+            <LinkRouter to="/logout" className="nav__link">
               Log out
             </LinkRouter>
           </li>

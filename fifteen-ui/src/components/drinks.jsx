@@ -2,7 +2,7 @@ import React from "react";
 import DrinkList from "./drinkList";
 import cocktailImg from "../img/cocktail.jpg";
 
-const Drinks = ({ data, onDelete }) => {
+const Drinks = ({ data, onDelete, admin }) => {
   const cocktails = data.filter(
     item => item.category.toLowerCase() === "cocktail"
   );
@@ -22,9 +22,24 @@ const Drinks = ({ data, onDelete }) => {
         <span className="logo__sub-heading">Bar</span>
       </div>
       <div className="cocktails__flex">
-        <DrinkList data={cocktails} onDelete={onDelete} heading={"Cocktails"} />
-        <DrinkList data={wines} onDelete={onDelete} heading={"Wine"} />
-        <DrinkList data={beers} onDelete={onDelete} heading={"Beers"} />
+        <DrinkList
+          data={cocktails}
+          onDelete={onDelete}
+          heading={"Cocktails"}
+          admin={admin}
+        />
+        <DrinkList
+          data={wines}
+          onDelete={onDelete}
+          heading={"Wine"}
+          admin={admin}
+        />
+        <DrinkList
+          data={beers}
+          onDelete={onDelete}
+          heading={"Beers"}
+          admin={admin}
+        />
       </div>
     </section>
   );

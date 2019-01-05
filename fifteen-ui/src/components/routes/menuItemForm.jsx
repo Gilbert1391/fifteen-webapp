@@ -88,7 +88,6 @@ class MenuItemForm extends Component {
   };
 
   doSubmit = async () => {
-    console.log("Submitted");
     await saveItem(this.state.data);
     this.props.history.push("/");
   };

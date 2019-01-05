@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Joi from "joi-browser";
 import Input from "../common/input";
+import { login } from "../../service/authService";
+import { log } from "util";
 
 class LoginForm extends Component {
   state = {
-    login: {
+    data: {
       username: "",
       password: ""
     },
@@ -44,22 +46,33 @@ class LoginForm extends Component {
     this.setState({ errors: errors || {} });
     if (errors) return;
 
-    // Call server
     this.doSubmit();
   };
 
-  doSubmit = () => {
-    console.log("Submitted");
+  doSubmit = async () => {
+    try {
+      const { data } = this.state;
+      const response = await login(data.username, data.password);
+      const { data: jwt } = await login(data.username, data.password);
+      localStorage.setItem("token", jwt);
+      window.location = "/";
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        errors.username = ex.response.data;
+        this.setState({ errors });
+      }
+    }
   };
 
   handleChange = ({ currentTarget: target }) => {
-    const login = { ...this.state.login };
-    login[target.name] = target.value;
-    this.setState({ login });
+    const data = { ...this.state.data };
+    data[target.name] = target.value;
+    this.setState({ data });
   };
 
   render() {
-    const { login, errors } = this.state;
+    const { data, errors } = this.state;
 
     return (
       <section>
@@ -72,7 +85,7 @@ class LoginForm extends Component {
           <Input
             name={"username"}
             label={"Username"}
-            value={login.username}
+            value={data.username}
             error={errors.username}
             onChange={this.handleChange}
           />
@@ -80,7 +93,7 @@ class LoginForm extends Component {
             type={"password"}
             name={"password"}
             label={"Password"}
-            value={login.password}
+            value={data.password}
             error={errors.password}
             onChange={this.handleChange}
           />

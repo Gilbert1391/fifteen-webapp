@@ -50,11 +50,19 @@ class Home extends Component {
 
     return (
       <React.Fragment>
-        <Hero data={heading} />
+        <Hero data={heading} admin={this.props.admin} />
         <main>
           <About />
-          <Menu data={data} onDelete={this.handleDelete} />
-          <Drinks data={data} onDelete={this.handleDelete} />
+          <Menu
+            data={data}
+            onDelete={this.handleDelete}
+            admin={this.props.admin}
+          />
+          <Drinks
+            data={data}
+            onDelete={this.handleDelete}
+            admin={this.props.admin}
+          />
           <Reservation />
         </main>
         <Footer />

@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./header";
 import heroImg from "../img/hero-bg.jpg";
 
-const Hero = ({ data }) => {
+const Hero = ({ data, admin }) => {
   const bg = {
     backgroundImage: `linear-gradient(
         to bottom,
@@ -14,7 +14,7 @@ const Hero = ({ data }) => {
 
   return (
     <section className="hero" id="home" style={bg}>
-      <Header />
+      <Header admin={admin} />
       <div className="hero__content">
         <h1 className="hero__heading">{data[0].heading}</h1>
         <p className="hero__sub-heading">{data[0].subHeading}</p>

@@ -15,7 +15,10 @@ router.post("/", validate(joiValidation), async (req, res) => {
     return res.status(400).send("Invalid username or password.");
   }
 
-  const token = jwt.sign({ _id: admin._id }, config.get("jwtPrivateKey"));
+  const token = jwt.sign(
+    { _id: admin._id, username: admin.username },
+    config.get("jwtPrivateKey")
+  );
   res.header("x-auth-token", token).send(token);
 });
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-scroll";
 import { Link as LinkRouter } from "react-router-dom";
 
-const Nav = ({ onActive, onInactive }) => {
+const Nav = ({ onActive, onInactive, admin }) => {
   return (
     <ul className="nav">
       <li className="nav__item">
@@ -62,11 +62,20 @@ const Nav = ({ onActive, onInactive }) => {
           Reservation
         </Link>
       </li>
-      <li className="nav__item">
-        <LinkRouter to="/menu-item/new" className="nav__link">
-          New item
-        </LinkRouter>
-      </li>
+      {admin && (
+        <React.Fragment>
+          <li className="nav__item">
+            <LinkRouter to="/menu-item/new" className="nav__link">
+              Add Item
+            </LinkRouter>
+          </li>
+          <li className="nav__item">
+            <LinkRouter to="/admin" className="nav__link">
+              Log out
+            </LinkRouter>
+          </li>
+        </React.Fragment>
+      )}
     </ul>
   );
 };

@@ -16,6 +16,7 @@ class Header extends Component {
   };
 
   render() {
+    console.log(this.props.admin);
     return (
       <header className="header">
         <div className="logo">
@@ -25,6 +26,7 @@ class Header extends Component {
           <Nav
             onActive={this.handleSetActive}
             onInactive={this.handleSetInactive}
+            admin={this.props.admin}
           />
         </nav>
         <Fade top collapse when={this.state.show}>
@@ -32,6 +34,7 @@ class Header extends Component {
             <Nav
               onActive={this.handleSetActive}
               onInactive={this.handleSetInactive}
+              admin={this.props.admin}
             />
           </nav>
         </Fade>

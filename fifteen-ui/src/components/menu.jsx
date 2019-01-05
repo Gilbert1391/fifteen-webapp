@@ -1,7 +1,7 @@
 import React from "react";
 import MenuList from "./menuList";
 
-const Menu = ({ data, onDelete }) => {
+const Menu = ({ data, onDelete, admin }) => {
   const snacks = data.filter(item => item.category.toLowerCase() === "snack");
   const sandwiches = data.filter(
     item => item.category.toLowerCase() === "sandwich"
@@ -14,9 +14,24 @@ const Menu = ({ data, onDelete }) => {
         <span className="logo__heading">Fifteen</span>
         <span className="logo__sub-heading">Restaurant</span>
       </div>
-      <MenuList data={snacks} onDelete={onDelete} heading={"snacks x salad"} />
-      <MenuList data={sandwiches} onDelete={onDelete} heading={"sandwiches"} />
-      <MenuList data={mains} onDelete={onDelete} heading={"mains"} />
+      <MenuList
+        data={snacks}
+        onDelete={onDelete}
+        heading={"snacks x salad"}
+        admin={admin}
+      />
+      <MenuList
+        data={sandwiches}
+        onDelete={onDelete}
+        heading={"sandwiches"}
+        admin={admin}
+      />
+      <MenuList
+        data={mains}
+        onDelete={onDelete}
+        heading={"mains"}
+        admin={admin}
+      />
     </section>
   );
 };

@@ -1,0 +1,28 @@
+.error-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__heading {
+    font-size: 6.4rem;
+    color: $color-orange;
+  }
+
+  &__paragraph {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__link {
+    color: #5893d4;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__icon {
+    margin-left: 1rem;
+  }
+}

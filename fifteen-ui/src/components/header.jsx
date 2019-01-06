@@ -16,7 +16,6 @@ class Header extends Component {
   };
 
   render() {
-    console.log(this.props.admin);
     return (
       <header className="header">
         <div className="logo">

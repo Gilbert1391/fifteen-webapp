@@ -83,7 +83,6 @@ class MenuItemForm extends Component {
     this.setState({ errors: errors || {} });
     if (errors) return;
 
-    // Call server
     this.doSubmit();
   };
 
@@ -101,6 +100,7 @@ class MenuItemForm extends Component {
 
   render() {
     const { data, errors } = this.state;
+    console.log(data);
 
     return (
       <section>

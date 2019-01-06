@@ -23,7 +23,7 @@ router.put(
     );
 
     if (!heading) {
-      return res.status(404).send("The item with the given ID was not found");
+      return res.status(404).send("The item was not found");
     }
 
     res.send(heading);

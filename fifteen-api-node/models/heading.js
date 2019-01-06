@@ -24,6 +24,7 @@ function joiValidation(heading) {
       .max(50)
       .required(),
     subHeading: Joi.string()
+      .allow("")
       .min(5)
       .max(50)
   };

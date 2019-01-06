@@ -25,5 +25,11 @@ export function deleteItem(itemId) {
 }
 
 export function getHeading() {
-  return http.get("http://localhost:3900/api/headings");
+  return http.get("http://localhost:3900/api/heading");
+}
+
+export function saveHeading(item) {
+  const body = { ...item };
+  delete body._id;
+  return http.put("http://localhost:3900/api/heading/" + item._id, body);
 }

@@ -1,33 +1,47 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Joi from "joi-browser";
 import Input from "../common/input";
-import { login } from "../../service/authService";
+import { getHeading, saveHeading } from "../../service/dataService";
 
-class LoginForm extends Component {
+class HeadingForm extends Component {
   state = {
     data: {
-      username: "",
-      password: ""
+      heading: "",
+      subHeading: ""
     },
     errors: {}
   };
 
+  async componentDidMount() {
+    const { data: heading } = await getHeading();
+    const data = heading[0];
+
+    this.setState({
+      data: {
+        _id: data._id,
+        heading: data.heading,
+        subHeading: data.subHeading
+      }
+    });
+  }
+
   schema = {
-    username: Joi.string()
+    _id: Joi.string(),
+    heading: Joi.string()
+      .min(5)
       .max(50)
-      .label("Username")
+      .label("Heading")
       .required(),
-    password: Joi.string()
+    subHeading: Joi.string()
+      .allow("")
+      .min(5)
       .max(50)
-      .label("Password")
-      .required()
   };
 
   validate = () => {
     const options = { abortEarly: false };
-    const { error } = Joi.validate(this.state.login, this.schema, options);
+    const { error } = Joi.validate(this.state.data, this.schema, options);
 
     if (!error) return null;
 
@@ -44,36 +58,26 @@ class LoginForm extends Component {
 
     const errors = this.validate();
     this.setState({ errors: errors || {} });
+    console.log(errors);
     if (errors) return;
 
     this.doSubmit();
   };
 
   doSubmit = async () => {
-    try {
-      const { data } = this.state;
-      const { data: jwt } = await login(data.username, data.password);
-      localStorage.setItem("token", jwt);
-      window.location = "/";
-    } catch (ex) {
-      if (ex.response && ex.response.status === 400) {
-        const errors = { ...this.state.errors };
-        errors.username = ex.response.data;
-        this.setState({ errors });
-      }
-    }
+    await saveHeading(this.state.data);
+    this.props.history.push("/");
   };
 
   handleChange = ({ currentTarget: target }) => {
     const data = { ...this.state.data };
     data[target.name] = target.value;
+
     this.setState({ data });
   };
 
   render() {
     const { data, errors } = this.state;
-
-    if (this.props.admin) return <Redirect to="/" />;
 
     return (
       <section>
@@ -84,22 +88,21 @@ class LoginForm extends Component {
         </div>
         <form className="form" onSubmit={this.handleSubmit}>
           <Input
-            name={"username"}
-            label={"Username"}
-            value={data.username}
-            error={errors.username}
+            name={"heading"}
+            label={"Heading *"}
+            value={data.heading}
+            error={errors.heading}
             onChange={this.handleChange}
           />
           <Input
-            type={"password"}
-            name={"password"}
-            label={"Password"}
-            value={data.password}
-            error={errors.password}
+            name={"subHeading"}
+            label={"Sub heading"}
+            value={data.subHeading}
+            error={errors.subHeading}
             onChange={this.handleChange}
           />
           <div className="form__group">
-            <button className="btn">Login</button>
+            <button className="btn">Save</button>
           </div>
         </form>
       </section>
@@ -107,4 +110,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default HeadingForm;

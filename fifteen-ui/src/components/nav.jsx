@@ -66,7 +66,7 @@ const Nav = ({ onActive, onInactive, admin }) => {
         <React.Fragment>
           <li className="nav__item">
             <LinkRouter to="/menu-item/new" className="nav__link">
-              Add Item
+              Add to menu
             </LinkRouter>
           </li>
           <li className="nav__item">

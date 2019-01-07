@@ -18,7 +18,7 @@ class MenuItemForm extends Component {
   };
 
   async componentDidMount() {
-    document.title = "Fifteeen | Menu item form";
+    document.title = "Fifteeen | Menu Item Form";
 
     const itemId = this.props.match.params.id;
     if (itemId === "new") return;

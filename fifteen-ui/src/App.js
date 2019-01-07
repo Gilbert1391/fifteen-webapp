@@ -8,6 +8,7 @@ import LoginForm from "./components/routes/loginForm";
 import HeadingForm from "./components/routes/headingForm";
 import Logout from "./components/routes/logout";
 import NotFound from "./components/routes/notFound";
+import UnexpectedError from "./components/routes/unexpectedError";
 import "react-toastify/dist/ReactToastify.css";
 import "./main.scss";
 
@@ -27,7 +28,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <ToastContainer />
+        <ToastContainer autoClose={4000} />
         <Switch>
           <Route
             path="/heading"
@@ -49,6 +50,7 @@ class App extends Component {
             render={props => <LoginForm {...props} admin={admin} />}
           />
           <Route path="/logout" component={Logout} />
+          <Route path="/unexpected-error" component={UnexpectedError} />
           <Route path="/not-found" component={NotFound} />
           <Route
             path="/"

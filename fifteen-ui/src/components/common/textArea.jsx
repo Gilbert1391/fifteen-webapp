@@ -14,7 +14,7 @@ const TextArea = ({ name, label, value, onChange, error }) => {
           {error}
         </div>
       )}
-      <label htmlFor="message" className="form__heading">
+      <label htmlFor={name} className="form__heading">
         {label}
       </label>
       <textarea

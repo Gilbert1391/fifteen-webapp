@@ -40,15 +40,19 @@ class Home extends Component {
 
   render() {
     const { data, heading } = this.state;
+
     this.props.admin
-      ? (document.title = "Fifteeen | Admin panel")
+      ? (document.title = "Fifteeen | Admin Panel")
       : (document.title = "Fifteeen | Restaurant & Bar");
 
-    if (data.length === 0 || Object.keys(heading).length === 0)
+    if (!data.length || !heading.length)
       return (
-        <div className="center">
-          <ClipLoader color={"#ff7517"} />
-        </div>
+        <React.Fragment>
+          <div className="center">
+            <ClipLoader color={"#ff7517"} />
+          </div>
+          {setTimeout(() => this.props.history.push("/unexpected-error"), 4500)}
+        </React.Fragment>
       );
 
     return (

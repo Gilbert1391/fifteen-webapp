@@ -17,7 +17,6 @@ const PhoneNav = ({ onActive, admin, isChecked, onCheck }) => {
       <nav className="phone-nav__navigation" id="phoneNavigation">
         <Link
           className="phone-nav__link"
-          id="phone-link"
           activeClass="nav-link-active"
           to="home"
           spy={true}
@@ -29,7 +28,6 @@ const PhoneNav = ({ onActive, admin, isChecked, onCheck }) => {
         </Link>
         <Link
           className="phone-nav__link"
-          id="phone-link"
           activeClass="nav-link-active"
           to="about"
           spy={true}
@@ -41,7 +39,6 @@ const PhoneNav = ({ onActive, admin, isChecked, onCheck }) => {
         </Link>
         <Link
           className="phone-nav__link"
-          id="phone-link"
           activeClass="nav-link-active"
           to="menu"
           spy={true}
@@ -53,7 +50,6 @@ const PhoneNav = ({ onActive, admin, isChecked, onCheck }) => {
         </Link>
         <Link
           className="phone-nav__link"
-          id="phone-link"
           activeClass="nav-link-active"
           to="drinks"
           spy={true}
@@ -65,7 +61,6 @@ const PhoneNav = ({ onActive, admin, isChecked, onCheck }) => {
         </Link>
         <Link
           className="phone-nav__link"
-          id="phone-link"
           activeClass="nav-link-active"
           to="reservation"
           spy={true}

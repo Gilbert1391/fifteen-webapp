@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 2rem;
 
   &__heading {
     font-size: 6.4rem;
@@ -16,6 +17,7 @@
   }
 
   &__link {
+    font-weight: 700;
     color: #5893d4;
     display: flex;
     align-items: center;
@@ -23,6 +25,7 @@
   }
 
   &__icon {
+    font-size: 1.4rem;
     margin-left: 1rem;
   }
 }

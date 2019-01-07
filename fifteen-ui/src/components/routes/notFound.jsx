@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 
 const NotFound = () => {
-  document.title = "Not found";
+  document.title = "Not Found";
   return (
     <div className="error-page">
       <h1 className="error-page__heading">404 Error :(</h1>
       <p className="error-page__paragraph">Page Not Found</p>
       <Link to="/" className="error-page__link">
-        Go back to the front page{" "}
+        Go back to the front page
         <FontAwesomeIcon
           icon={faLongArrowAltRight}
           className="error-page__icon"

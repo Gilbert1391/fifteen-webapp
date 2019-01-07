@@ -15,7 +15,7 @@ class LoginForm extends Component {
   };
 
   componentDidMount() {
-    document.title = "Fifteeen | Admin login";
+    document.title = "Fifteeen | Admin Login";
   }
 
   schema = {

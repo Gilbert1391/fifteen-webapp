@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Fade from "react-reveal/Fade";
 import Nav from "./nav";
-import PhoneNav from "./routes/phoneNav";
+import PhoneNav from "./phoneNav";
 
 class Header extends Component {
   state = {

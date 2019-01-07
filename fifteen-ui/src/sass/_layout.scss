@@ -15,11 +15,21 @@
     padding: 4rem 2rem;
   }
 
+  @include responsive(big-desktop) {
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+
   &--big {
     padding: 14rem 10rem;
 
     @include responsive(tab-land) {
       padding: 14rem 4rem;
+    }
+
+    @include responsive(big-desktop) {
+      max-width: 120rem;
+      margin: 0 auto;
     }
   }
 }

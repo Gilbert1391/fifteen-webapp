@@ -16,30 +16,32 @@ const Drinks = ({ data, onDelete, admin }) => {
   };
 
   return (
-    <section className="drinks container--big" id="drinks" style={bg}>
-      <div className="logo logo--mb-8">
-        <span className="logo__heading">Fifteen</span>
-        <span className="logo__sub-heading">Bar</span>
-      </div>
-      <div className="drinks-flex">
-        <DrinkList
-          data={cocktails}
-          onDelete={onDelete}
-          heading={"Cocktails"}
-          admin={admin}
-        />
-        <DrinkList
-          data={wines}
-          onDelete={onDelete}
-          heading={"Wine"}
-          admin={admin}
-        />
-        <DrinkList
-          data={beers}
-          onDelete={onDelete}
-          heading={"Beers"}
-          admin={admin}
-        />
+    <section className="drinks" id="drinks" style={bg}>
+      <div className="container--big">
+        <div className="logo logo--mb-8">
+          <span className="logo__heading">Fifteen</span>
+          <span className="logo__sub-heading">Bar</span>
+        </div>
+        <div className="drinks-flex">
+          <DrinkList
+            data={cocktails}
+            onDelete={onDelete}
+            heading={"Cocktails"}
+            admin={admin}
+          />
+          <DrinkList
+            data={wines}
+            onDelete={onDelete}
+            heading={"Wine"}
+            admin={admin}
+          />
+          <DrinkList
+            data={beers}
+            onDelete={onDelete}
+            heading={"Beers"}
+            admin={admin}
+          />
+        </div>
       </div>
     </section>
   );

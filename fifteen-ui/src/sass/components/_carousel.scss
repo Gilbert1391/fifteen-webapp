@@ -18,6 +18,10 @@
     height: 37vh;
   }
 
+  @include responsive(big-desktop) {
+    height: 140vh;
+  }
+
   &__img {
     width: 100%;
     height: 100%;

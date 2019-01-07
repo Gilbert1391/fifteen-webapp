@@ -16,14 +16,10 @@ class Home extends Component {
   };
 
   async componentDidMount() {
-    try {
-      const { data } = await getItems();
-      const { data: heading } = await getHeading();
+    const { data } = await getItems();
+    const { data: heading } = await getHeading();
 
-      this.setState({ data, heading });
-    } catch (ex) {
-      setTimeout(() => this.props.history.push("/unexpected-error"), 4500);
-    }
+    this.setState({ data, heading });
   }
 
   handleDelete = async itemId => {

@@ -16,10 +16,14 @@ class Home extends Component {
   };
 
   async componentDidMount() {
-    const { data } = await getItems();
-    const { data: heading } = await getHeading();
+    try {
+      const { data } = await getItems();
+      const { data: heading } = await getHeading();
 
-    this.setState({ data, heading });
+      this.setState({ data, heading });
+    } catch (ex) {
+      setTimeout(() => this.props.history.push("/unexpected-error"), 4500);
+    }
   }
 
   handleDelete = async itemId => {
@@ -45,15 +49,13 @@ class Home extends Component {
       ? (document.title = "Fifteeen | Admin Panel")
       : (document.title = "Fifteeen | Restaurant & Bar");
 
-    if (!data.length || !heading.length)
+    if (!data.length || !heading.length) {
       return (
-        <React.Fragment>
-          <div className="center">
-            <ClipLoader color={"#ff7517"} />
-          </div>
-          {setTimeout(() => this.props.history.push("/unexpected-error"), 4500)}
-        </React.Fragment>
+        <div className="center">
+          <ClipLoader color={"#ff7517"} />
+        </div>
       );
+    }
 
     return (
       <React.Fragment>

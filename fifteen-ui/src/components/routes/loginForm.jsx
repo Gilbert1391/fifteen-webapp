@@ -14,6 +14,10 @@ class LoginForm extends Component {
     errors: {}
   };
 
+  componentDidMount() {
+    document.title = "Fifteeen | Admin login";
+  }
+
   schema = {
     username: Joi.string()
       .max(50)

@@ -24,6 +24,7 @@ class App extends Component {
 
   render() {
     const { admin } = this.state;
+
     return (
       <React.Fragment>
         <ToastContainer />

@@ -14,6 +14,8 @@ class HeadingForm extends Component {
   };
 
   async componentDidMount() {
+    document.title = "Fifteeen | Title form";
+
     const { data: heading } = await getHeading();
     const data = heading[0];
 

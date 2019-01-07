@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 
 const NotFound = () => {
+  document.title = "Not found";
   return (
     <div className="error-page">
       <h1 className="error-page__heading">404 Error :(</h1>

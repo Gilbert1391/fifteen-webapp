@@ -40,6 +40,9 @@ class Home extends Component {
 
   render() {
     const { data, heading } = this.state;
+    this.props.admin
+      ? (document.title = "Fifteeen | Admin panel")
+      : (document.title = "Fifteeen | Restaurant & Bar");
 
     if (data.length === 0 || Object.keys(heading).length === 0)
       return (

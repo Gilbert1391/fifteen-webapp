@@ -16,12 +16,12 @@ const Drinks = ({ data, onDelete, admin }) => {
   };
 
   return (
-    <section className="cocktails container--big" id="drinks" style={bg}>
+    <section className="drinks container--big" id="drinks" style={bg}>
       <div className="logo logo--mb-8">
         <span className="logo__heading">Fifteen</span>
         <span className="logo__sub-heading">Bar</span>
       </div>
-      <div className="cocktails__flex">
+      <div className="drinks-flex">
         <DrinkList
           data={cocktails}
           onDelete={onDelete}

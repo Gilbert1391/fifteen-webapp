@@ -100,7 +100,6 @@ class MenuItemForm extends Component {
 
   render() {
     const { data, errors } = this.state;
-    console.log(data);
 
     return (
       <section>

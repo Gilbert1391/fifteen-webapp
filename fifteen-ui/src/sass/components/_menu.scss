@@ -10,6 +10,10 @@
   &__flex {
     display: flex;
     flex-wrap: wrap;
+
+    @include responsive(phone) {
+      flex-direction: column;
+    }
   }
 
   &__line {
@@ -31,6 +35,10 @@
   margin-bottom: 3rem;
   position: relative;
 
+  @include responsive(phone) {
+    width: 100%;
+  }
+
   &:not(:last-child) {
     margin-right: 4.5rem;
   }
@@ -51,6 +59,10 @@
 
 .drinks-section {
   width: calc(100% / 3);
+
+  @include responsive(phone) {
+    width: 100%;
+  }
 
   &:not(:last-child) {
     margin-right: 4.5rem;

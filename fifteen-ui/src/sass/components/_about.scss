@@ -1,6 +1,11 @@
 .about {
   width: 70%;
 
+  @include responsive(phone) {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
   &__heading {
     font-size: 3rem;
     margin-bottom: 6rem;

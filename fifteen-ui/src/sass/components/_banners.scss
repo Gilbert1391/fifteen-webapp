@@ -4,6 +4,22 @@
   background-size: cover;
   position: relative;
 
+  @include responsive(tab-land) {
+    height: 110vh;
+  }
+
+  @include responsive(tab-port) {
+    height: 80vh;
+  }
+
+  @include responsive(phone-land) {
+    height: 120vh;
+  }
+
+  @include responsive(phone) {
+    height: 83vh;
+  }
+
   &__content {
     width: 63.5rem;
     position: absolute;
@@ -12,12 +28,20 @@
     transform: translate(-50%, -50%);
     padding: 0 2rem;
     text-align: center;
+
+    @include responsive(phone) {
+      width: 100%;
+    }
   }
 
   &__heading {
     font-size: 8rem;
     line-height: 1;
     color: $color-white;
+
+    @include responsive(phone) {
+      font-size: 7rem;
+    }
   }
 
   &__sub-heading {
@@ -26,13 +50,9 @@
   }
 }
 
-.cocktails {
+.drinks {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   color: $color-white;
-
-  &__flex {
-    display: flex;
-  }
 }

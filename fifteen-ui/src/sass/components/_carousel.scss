@@ -2,6 +2,22 @@
   width: 100%;
   height: 95vh;
 
+  @include responsive(tab-land) {
+    height: 70vh;
+  }
+
+  @include responsive(tab-port) {
+    height: 49vh;
+  }
+
+  @include responsive(phone-land) {
+    height: 80vh;
+  }
+
+  @include responsive(phone) {
+    height: 37vh;
+  }
+
   &__img {
     width: 100%;
     height: 100%;

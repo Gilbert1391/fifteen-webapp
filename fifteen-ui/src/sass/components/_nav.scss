@@ -1,6 +1,10 @@
 .nav {
   display: flex;
 
+  @include responsive(tab-port) {
+    display: none;
+  }
+
   &__item {
     list-style: none;
     font-weight: 600;
@@ -23,10 +27,6 @@
   }
 }
 
-.nav-link-active {
-  color: $color-orange;
-}
-
 .sticky {
   display: flex;
   justify-content: center;
@@ -38,4 +38,120 @@
   left: 0;
   top: 0;
   z-index: 10;
+
+  @include responsive(tab-port) {
+    display: none;
+  }
+}
+
+.phone-nav {
+  display: none;
+
+  @include responsive(tab-port) {
+    display: block;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    top: 3.5rem;
+    left: 3.5rem;
+    background: #222;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    @include responsive(phone-land) {
+      width: 4rem;
+      height: 4rem;
+      top: 2rem;
+      left: 2rem;
+    }
+  }
+
+  &__navigation {
+    width: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #222;
+    opacity: 0;
+    z-index: 10;
+    transition: all 200ms ease-out;
+  }
+
+  &__link {
+    font-size: 4rem;
+    font-weight: 400;
+    color: $color-light-gray;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  &__checkbox:checked ~ &__navigation {
+    width: 100%;
+    opacity: 1;
+  }
+
+  // ICON
+
+  &__icon {
+    position: relative;
+    display: flex;
+
+    &,
+    &::before,
+    &::after {
+      width: 2rem;
+      height: 2px;
+      background: $color-white;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 300ms;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+
+.nav-link-active {
+  color: $color-orange;
 }

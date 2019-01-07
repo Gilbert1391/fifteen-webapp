@@ -7,20 +7,48 @@
 .container {
   padding: 6rem 10rem;
 
+  @include responsive(tab-land) {
+    padding: 6rem 4rem;
+  }
+
+  @include responsive(phone) {
+    padding: 4rem 2rem;
+  }
+
   &--big {
     padding: 14rem 10rem;
+
+    @include responsive(tab-land) {
+      padding: 14rem 4rem;
+    }
   }
 }
 
 .about-us {
   display: flex;
   justify-content: space-between;
+
+  @include responsive(phone) {
+    flex-direction: column;
+  }
+}
+
+.drinks-flex {
+  display: flex;
+
+  @include responsive(phone) {
+    flex-direction: column;
+  }
 }
 
 .reservation {
   width: 50%;
   margin: 0 auto;
   text-align: center;
+
+  @include responsive(phone) {
+    width: 100%;
+  }
 
   &__heading {
     color: $color-orange;

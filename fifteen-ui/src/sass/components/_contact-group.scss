@@ -1,6 +1,12 @@
 .contact {
   width: 20%;
 
+  @include responsive(phone) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__group:not(:last-child) {
     margin-bottom: 6rem;
   }

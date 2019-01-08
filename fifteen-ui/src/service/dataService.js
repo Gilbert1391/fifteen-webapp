@@ -1,6 +1,6 @@
 import http from "./httpService";
 
-const apiEndPoint = "http://localhost:3900/api/menus";
+const apiEndPoint = "/menus";
 
 export function getItems() {
   return http.get(apiEndPoint);
@@ -25,11 +25,11 @@ export function deleteItem(itemId) {
 }
 
 export function getHeading() {
-  return http.get("http://localhost:3900/api/heading");
+  return http.get("/heading");
 }
 
 export function saveHeading(item) {
   const body = { ...item };
   delete body._id;
-  return http.put("http://localhost:3900/api/heading/" + item._id, body);
+  return http.put("/heading/" + item._id, body);
 }

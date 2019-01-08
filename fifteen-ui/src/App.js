@@ -46,7 +46,6 @@ class App extends Component {
           />
           <Route
             path="/admin"
-            exact
             render={props => <LoginForm {...props} admin={admin} />}
           />
           <Route path="/logout" component={Logout} />

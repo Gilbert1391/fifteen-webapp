@@ -6,7 +6,7 @@ Specifically in this web page, the admin can add, edit or even delete data (CRUD
 
 ### [View Demo](https://fifteen-app.herokuapp.com/)
 
-## Login do I login as admin?
+## How do I login as admin?
 
 It's pretty easy, just add /admin at the end of the URL and you will be redirected to the admin login route, submit the form with the credentials (You will have to contact me for the credentials) and you will be taken back to the home page, but this time it will look a slightly different.
 
@@ -24,4 +24,4 @@ I implemented a route in case the user makes a typo in the URL.
 
 ![screen shot 2019-01-11 at 11 37 39 am](https://user-images.githubusercontent.com/36945268/51043576-6593b480-1595-11e9-823e-8fdaa928233a.png)
 
-Built with :heart: by [Gilbert Rosario](https://gilbertrosario.com/)
+Coded with :heart: by [Gilbert Rosario](https://gilbertrosario.com/)

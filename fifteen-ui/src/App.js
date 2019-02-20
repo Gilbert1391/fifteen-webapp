@@ -16,6 +16,8 @@ class App extends Component {
   state = {};
 
   componentDidMount() {
+    // The try catch block is only in case there is no jwt in the browser storage
+    // Because the jwtDecode function crashes the app you pass null or empty string
     try {
       const jwt = localStorage.getItem("token");
       const admin = jwtDecode(jwt);
